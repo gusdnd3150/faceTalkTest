@@ -1,4 +1,9 @@
-var conn = new WebSocket('ws://localhost:8090/test');
+
+//const conn = new WebSocket("wss://" + window.location.host + "/rtc/test");
+var conn = new WebSocket('ws://javascript.info/rtc/test');
+//var conn = new WebSocket('ws://localhost:8090/test');
+
+	console.log(conn);
 
 conn.onopen = function() {
     console.log("Connected to the signaling server");
