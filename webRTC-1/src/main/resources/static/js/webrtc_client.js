@@ -1,9 +1,11 @@
 
-//const conn = new WebSocket("wss://" + window.location.host + "/rtc/test");
-var conn = new WebSocket('ws://javascript.info/rtc/test');
-//var conn = new WebSocket('ws://localhost:8090/test');
+const conn = new WebSocket("wss://" + window.location.host + "/rtc/test");
+const conn2 =new WebSocket("ws://" + window.location.host + "/rtc/test"); 
+//var conn = new WebSocket('ws://javascript.info/rtc/test');
+//var conn = new WebSocket("ws://" + window.location.host + "/rtc/test");
 
-	console.log(conn);
+console.log("연결됐니?"+conn);
+console.log("연결됐니?2"+conn2);
 
 conn.onopen = function() {
     console.log("Connected to the signaling server");

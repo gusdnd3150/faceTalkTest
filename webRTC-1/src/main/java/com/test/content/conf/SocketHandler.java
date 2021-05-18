@@ -16,7 +16,6 @@ public class SocketHandler extends TextWebSocketHandler {
 	 
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-		System.out.print("여길타나");
 		user.put(session.getId(), session);
 	}
 

@@ -8,7 +8,6 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String test() {
-		System.out.print("성공");
 		return "main";
 	}
 
