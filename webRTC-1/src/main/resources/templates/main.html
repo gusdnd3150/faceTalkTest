@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>테스트</title>
+</head>
+<body>
+
+        <div class="container">
+  <h1>A Demo for messaging in WebRTC</h1>
+
+  <h3>
+   Run two instances of this webpage along with the server to test this
+   application.<br> Create an offer, and then send the message. <br>Check
+   the browser console to see the output.
+  </h3>
+
+  <!--WebRTC related code-->
+  <button type="button" class="btn btn-primary" onclick='createOffer()'>Create
+   Offer</button>
+  <input id="messageInput" type="text" class="form-control"
+   placeholder="message">
+  <button type="button" class="btn btn-primary" onclick='sendMessage()'>메시지</button>
+  <button type="button" class="btn btn-primary" onclick='initialize()'>연결</button>
+  <!--WebRTC related code-->
+
+  <div>
+    <video id="localVideo" autoplay playsinline></video>
+    <video id="remoteVideo" autoplay playsinline></video>
+  </div>
+  
+
+
+ </div>
+
+
+</body>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script th:src="@{/js/webrtc_client.js}"></script>
+</html>
