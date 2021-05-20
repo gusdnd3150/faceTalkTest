@@ -1,11 +1,14 @@
 
-const conn = new WebSocket("wss://" + window.location.host + "/rtc/test");
-const conn2 =new WebSocket("ws://" + window.location.host + "/rtc/test"); 
-//var conn = new WebSocket('ws://javascript.info/rtc/test');
+
+function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+}
+const conn =new WebSocket("ws://" + window.location.host + getContextPath() + "/rtc/test");
+//const conn =new WebSocket("ws://" + window.location.host +  "/rtc/test");
 //var conn = new WebSocket("ws://" + window.location.host + "/rtc/test");
 
-console.log("연결됐니?"+conn);
-console.log("연결됐니?2"+conn2);
+
 
 conn.onopen = function() {
     console.log("Connected to the signaling server");
@@ -112,7 +115,7 @@ function createOffer() {
         });
         peerConnection.setLocalDescription(offer);
     }, function(error) {
-        alert("Error creating an offer");
+        alert("오퍼 실패");
     });
 }
 
