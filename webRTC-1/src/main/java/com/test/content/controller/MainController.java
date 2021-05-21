@@ -8,7 +8,12 @@ public class MainController {
 	
 	@GetMapping("/")
 	public String test() {
-		return "main";
+		return "test2";
+	}
+	
+	@GetMapping("/test2")
+	public String test2() {
+		return "test2";
 	}
 
 }

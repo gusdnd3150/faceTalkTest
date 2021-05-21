@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>테스트</title>
+
+<style>
+body{
+ background-color: black;
+}
+.video-sector{
+ text-align: center;
+ margin-bottom:20px;
+}
+h3{
+   color:white;
+   font-weight: bold;
+}
+.title{
+	text-align: center;
+}
+
+.chatBox{
+	background-color: white;
+    width: 500px;
+    margin: 0 auto;
+}
+.chat-input{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="title">
+   <h3>실시간 통화 테스트</h3>
+</div>
+<div class="video-sector">
+  <video id="localVideo" autoplay playsinline></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <div>
+    <button onclick="createOffer()">영상연결</button>
+    <button id="remoteButton">원격video</button>
+  </div>
+</div>
+
+  <div class="chat-input">
+     <input type="text" name="message" id="message">
+     <button id="sendWSK">보내기</button>
+  </div>
+<div class="chatBox">
+
+</div>
+
+
+</body>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script th:src="@{/js/webrtc_client2.js}"></script>
+</html>

@@ -1,4 +1,4 @@
-
+////////////////////////////////////  웹소켓
 
 function getContextPath() {
     var hostIndex = location.href.indexOf( location.host ) + location.host.length;
@@ -38,17 +38,15 @@ function send(message) {
     conn.send(JSON.stringify(message));
 }
 
-//////////////////////////////////// 위 Websocket
+
+////////////////////////////////////   전역변수
 
 var peerConnection;
 var dataChannel;
 var input = document.getElementById("messageInput");
 const localVideo = document.getElementById('localVideo');
 const remoteVideo = document.getElementById('remoteVideo')
-
-
-function initialize() {
-    var configuration = {
+var configuration = {
     	    "iceServers" :  [
     	        {
     	            'urls': 'stun:stun.l.google.com:19302'
@@ -64,9 +62,13 @@ function initialize() {
     	            'username': 'XXXXXXXXXXXXXXX'
     	          }
     ]};
+//////////////////////////////////
 
+
+
+function initialize() {
+    
     peerConnection = new RTCPeerConnection(configuration);
-   
     // Setup ice handling
     peerConnection.onicecandidate = function(event) {
         if (event.candidate) {
@@ -76,36 +78,12 @@ function initialize() {
             });
         }
     };
-
-    /*// creating data channel
-    dataChannel = peerConnection.createDataChannel("dataChannel", {
-        reliable : true
-    });
-
-    dataChannel.onerror = function(error) {
-        console.log("Error occured on datachannel:", error);
-    };
-
-    // when we receive a message from the other peer, printing it on the console
-    dataChannel.onmessage = function(event) {
-        console.log("message:", event.data);
-    };
-
-    dataChannel.onclose = function() {
-        console.log("data channel is closed");
-    };
-  
-  	peerConnection.ondatachannel = function (event) {
-        dataChannel = event.channel;
-  	};*/
   	peerConnection.onaddstream = function(event) {
   		remoteVideo.srcObject = event.stream;
   	};
-
-    
 }
 
-function createOffer() {
+function createOffer() {      // peer 연결
     peerConnection.createOffer(function(offer) {
         send({
             event : "offer",
