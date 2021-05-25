@@ -111,15 +111,6 @@ function handleOffer(offer) {
 
 };
 
-function handleCandidate(candidate) {
-    peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
-};
-
-function handleAnswer(answer) {
-    peerConnection.setRemoteDescription(new RTCSessionDescription(answer));
-    console.log("connection established successfully!!");
-};
-
 function sendMessage() {
 	console.log(input.value)
     dataChannel.send(input.value);
